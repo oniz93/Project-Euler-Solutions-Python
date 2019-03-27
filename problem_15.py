@@ -1,8 +1,6 @@
-# We have a 20x20 matrix. So position starts with [0,0] and ends with [19,19]
+# We have a 20x20 matrix. So position starts with [0,0] and ends with [20,20]
 # We can find paths only going down or right so if x,y are the positions we can do only x+1 or y+1
 # Starting from [0,0] i'll make a list of lists for each path
-
-# Brute force way. Computationally too long
 def find_path(x,y):
 	max_grid = 20
 	if x == max_grid and y == max_grid:
@@ -14,8 +12,10 @@ def find_path(x,y):
 	if y+1 <= max_grid:
 		tmp = find_path(x,y+1)
 	return 1
-
 count_paths = 0
+# This way unluckly isn't good for big matrixes where "big" is over 10x10
+
+
 
 # Math way, given a nxn grid
 # The formula is (2n)! / n! / n!
@@ -27,7 +27,4 @@ def find_path_math(n):
 	return math.factorial(2 * n) / n_fact / n_fact
 
 
-# find_path(0,0)
 print("Solution is: "+str(find_path_math(20)))
-	#print(paths)
-#print("Solution is: "+str(len(paths)))
